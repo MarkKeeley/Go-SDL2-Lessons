@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/veandco/go-sdl2/sdl"
-	"github.com/veandco/go-sdl2/sdl_ttf"
 	"os"
 	"time"
+
+	"github.com/veandco/go-sdl2/sdl"
+	"github.com/veandco/go-sdl2/ttf"
 )
 
 const (
@@ -70,7 +71,7 @@ func HandleEvents() {
 		switch t := event.(type) {
 		case *sdl.QuitEvent:
 			quit = true
-		case *sdl.KeyDownEvent:
+		case *sdl.KeyboardEvent:
 			if t.Keysym.Sym == sdl.K_ESCAPE {
 				quit = true
 			}
@@ -99,7 +100,7 @@ func CreateFonts() (successful bool) {
 	}
 
 	var solidSurface *sdl.Surface
-	if solidSurface, err = font.RenderUTF8_Solid("Solid Text", sdl.Color{255, 0, 0, 255}); err != nil {
+	if solidSurface, err = font.RenderUTF8Solid("Solid Text", sdl.Color{255, 0, 0, 255}); err != nil {
 		fmt.Printf("Failed to render text: %s\n", err)
 		return false
 	}
@@ -112,7 +113,7 @@ func CreateFonts() (successful bool) {
 	solidSurface.Free()
 
 	var shadedSurface *sdl.Surface
-	if shadedSurface, err = font.RenderUTF8_Shaded("Shaded Text",
+	if shadedSurface, err = font.RenderUTF8Shaded("Shaded Text",
 		sdl.Color{0, 255, 0, 255}, sdl.Color{255, 0, 255, 255}); err != nil {
 		fmt.Printf("Failed to render text: %s\n", err)
 		return false
@@ -126,7 +127,7 @@ func CreateFonts() (successful bool) {
 	shadedSurface.Free()
 
 	var blendedSurface *sdl.Surface
-	if blendedSurface, err = font.RenderUTF8_Blended("Blended Text", sdl.Color{0, 0, 255, 255}); err != nil {
+	if blendedSurface, err = font.RenderUTF8Blended("Blended Text", sdl.Color{0, 0, 255, 255}); err != nil {
 		fmt.Printf("Failed to render text: %s\n", err)
 		return false
 	}
