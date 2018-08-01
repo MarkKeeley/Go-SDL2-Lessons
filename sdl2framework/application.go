@@ -15,8 +15,8 @@ type Application struct {
 	running  bool
 }
 
-func (a *Application) Setup(title string, xposition int, yposition int,
-	width int, height int, fullscreen bool) {
+func (a *Application) Setup(title string, xposition int32, yposition int32,
+	width int32, height int32, fullscreen bool) {
 	// initialize SDL
 	sdl.Init(sdl.INIT_EVERYTHING)
 
@@ -47,7 +47,7 @@ func (a *Application) HandleEvents() {
 		switch t := a.event.(type) {
 		case *sdl.QuitEvent:
 			a.running = false
-		case *sdl.KeyDownEvent:
+		case *sdl.KeyboardEvent:
 			if t.Keysym.Sym == sdl.K_ESCAPE {
 				a.running = false
 			}
