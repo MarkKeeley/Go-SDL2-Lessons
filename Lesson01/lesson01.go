@@ -5,7 +5,6 @@ import "fmt"
 
 //imported for logging if something went wrong and to exit program if there was a problem
 import "os"
-
 //imported to keep the window open for 5 seconds
 import "time"
 

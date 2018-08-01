@@ -1,17 +1,18 @@
 package main
 
-import "fmt"
-import "os"
+import (
+	"fmt"
+	"os"
+	"time"
 
-import "time"
-import "github.com/veandco/go-sdl2/sdl"
+	"github.com/veandco/go-sdl2/img"
+	"github.com/veandco/go-sdl2/sdl"
+)
 
-// using non bitmap images so we need sdl_image
-import "github.com/veandco/go-sdl2/sdl_image"
+const screenWidth = 640
+const screenHeight = 480
 
 func main() {
-	screenWidth := 640
-	screenHeight := 480
 
 	err := sdl.Init(sdl.INIT_EVERYTHING)
 	if err != nil {
@@ -76,7 +77,7 @@ func main() {
 			switch t := event.(type) {
 			case *sdl.QuitEvent:
 				isRunning = false
-			case *sdl.KeyDownEvent:
+			case *sdl.KeyboardEvent:
 				if t.Keysym.Sym == sdl.K_ESCAPE {
 					isRunning = false
 				}
