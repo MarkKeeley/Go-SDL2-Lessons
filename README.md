@@ -1,5 +1,5 @@
 # Go + SDL2 Lessons
-Small programs using the [Go-SDL2](https://github.com/veandco/go-sdl2/) bindings for my website at [markkeeley.us](https://markkeeley.us).
+Small examples using the [Go-SDL2](https://github.com/veandco/go-sdl2/) bindings for my website at [markkeeley.us](https://markkeeley.us).
 
 All code and graphics are licensed under the [Unlicense](http://unlicense.org/).
 
