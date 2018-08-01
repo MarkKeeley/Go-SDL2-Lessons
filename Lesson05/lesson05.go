@@ -76,7 +76,7 @@ func HandleEvents() {
 		switch t := event.(type) {
 		case *sdl.QuitEvent:
 			quit = true
-		case *sdl.KeyDownEvent:
+		case *sdl.KeyboardEvent:
 			if t.Keysym.Sym == sdl.K_ESCAPE {
 				quit = true
 			}
